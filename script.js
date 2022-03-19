@@ -1,15 +1,18 @@
+//Define DOM element
 const form = document.getElementById("form");
 const firstname = document.getElementById("firstname");
 const lastname = document.getElementById("lastname");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 
+//Setting submit button function
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   checkInputs();
 });
 
+//Check input value from field
 function checkInputs() {
   const firstNameValue = firstname.value.trim();
   const lastNameValue = lastname.value.trim();
@@ -44,6 +47,7 @@ function checkInputs() {
   }
 }
 
+// Define error message
 function setError(input, message) {
   const formControl = input.parentElement;
   const small = formControl.querySelector("small");
@@ -54,6 +58,7 @@ function setError(input, message) {
   input.classList.remove("success");
 }
 
+// Remove error message
 function removeError(input) {
   const formControl = input.parentElement;
   const small = formControl.querySelector("small");
@@ -63,6 +68,7 @@ function removeError(input) {
   input.classList.add("success");
 }
 
+// Verify email character
 function emailAddr(email) {
   return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
 }
